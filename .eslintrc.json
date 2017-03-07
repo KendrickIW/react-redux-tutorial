@@ -1,5 +1,6 @@
 {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "env": {
       "browser": true,
       "es6": true,
@@ -10,5 +11,8 @@
         "react",
         "jsx-a11y",
         "import"
-    ]
+    ],
+    "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    }
 }
