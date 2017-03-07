@@ -25,4 +25,4 @@ const fetchTimeslots = () => ((dispatch) => {
     });
 });
 
-export { fetchTimeslots };
+export { fetchTimeslots }; // eslint-disable-line import/prefer-default-export

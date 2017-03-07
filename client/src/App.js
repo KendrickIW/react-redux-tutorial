@@ -1,21 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
+import * as timeslotActions from './actions/TimeslotActions';
 
-class App extends Component {
+
+export class App extends Component {
+
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    timeslots: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }
+
+  componentWillMount() {
+    this.props.dispatch(timeslotActions.fetchTimeslots());
+  }
+
   render() {
+    const timeslots = this.props.timeslots;
+    const mappedTimeslots = timeslots.map(timeslot =>
+      <li key={timeslot.start}>{timeslot.start} - {timeslot.end}</li>);
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <ul>{mappedTimeslots}</ul>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(store => ({
+  timeslots: store.timeslots.timeslots,
+}))(App);

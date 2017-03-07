@@ -10,7 +10,40 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/api/timeslots', (req, res) => {
   res.json({
-    timeslots: 'Some time slots',
+    timeslots: [
+      {
+        start: '9:00am',
+        end: '10:00am',
+      },
+      {
+        start: '10:00am',
+        end: '11:00am',
+      },
+      {
+        start: '11:00am',
+        end: '12:00pm',
+      },
+      {
+        start: '12:00pm',
+        end: '1:00pm',
+      },
+      {
+        start: '1:00pm',
+        end: '2:00pm',
+      },
+      {
+        start: '2:00pm',
+        end: '3:00pm',
+      },
+      {
+        start: '3:00pm',
+        end: '4:00pm',
+      },
+      {
+        start: '4:00pm',
+        end: '5:00pm',
+      },
+    ],
   });
 });
 

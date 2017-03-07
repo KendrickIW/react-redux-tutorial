@@ -1,10 +1,12 @@
-export default (state = {
-  timeslots: []
-}, action) => {
+const initialState = { timeslots: [] };
+
+export default (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCHED_TIMESLOTS': {
-      state = {...state, timeslots: action.payload}
+    case 'FETCH_TIMESLOTS_FULFILLED': {
+      return { ...state, timeslots: action.payload.timeslots };
+    }
+    default: {
+      return state;
     }
   }
-  return state;
-}
+};
