@@ -21,7 +21,7 @@ describe('Timeslot Reducer', () => {
       });
 
       it('returns a default state for timeslots', () => {
-        afterState = { timeslots: [] };
+        afterState = [];
 
         expect(subject(beforeState, action)).toEqual(afterState);
       });
@@ -34,7 +34,7 @@ describe('Timeslot Reducer', () => {
 
       it('returns state with list of timeslots when payload is valid', () => {
         action = { ...action, payload: { timeslots: [{ id: 1, begin: '9:00am', end: '10:00am' }] } };
-        afterState = { timeslots: [{ id: 1, begin: '9:00am', end: '10:00am' }] };
+        afterState = [{ id: 1, begin: '9:00am', end: '10:00am' }];
 
         expect(subject(beforeState, action)).toEqual(afterState);
       });

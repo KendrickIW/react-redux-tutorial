@@ -14,6 +14,15 @@ const fetchTimeslotsError = message => ({
   payload: message,
 });
 
+const editTimeslot = (id, name, phone) => ({
+  type: 'EDIT_TIMESLOT',
+  payload: {
+    id,
+    name,
+    phone,
+  },
+});
+
 const fetchTimeslots = () => ((dispatch) => {
   dispatch(fetchTimeslotsRequest());
   return axios.get('/api/timeslots')
@@ -25,4 +34,4 @@ const fetchTimeslots = () => ((dispatch) => {
     });
 });
 
-export { fetchTimeslots }; // eslint-disable-line import/prefer-default-export
+export { fetchTimeslots, editTimeslot };

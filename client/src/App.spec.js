@@ -7,6 +7,7 @@ describe('App Component', () => {
     const props = {
       dispatch: jest.fn(),
       timeslots: [],
+      modal: { open: true },
     };
 
     shallow(<App {...props} />);
